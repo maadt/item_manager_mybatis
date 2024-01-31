@@ -1,6 +1,7 @@
 package com.example.entity;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 public class Item {
 	private int id;
@@ -52,4 +53,13 @@ public class Item {
 	public void setDeletedAt(LocalDateTime deletedAt) {
 		this.deletedAt = deletedAt;
 	}
+	
+	private List<Category> categories;
+	
+	public List<Category> getCategories() {
+        return categories;
+    }
+    public void setCategories(List<Category> categories) {
+        this.categories = categories;
+    }
 }
