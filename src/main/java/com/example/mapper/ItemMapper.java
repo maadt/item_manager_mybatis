@@ -9,6 +9,7 @@ import com.example.entity.Item;
 @Mapper
 public interface ItemMapper {
 	public List<Item> findAll();
-	public void insert(Item item);
 	public Item findById(Integer id);
+	public void insert(Item item);
+	public void update(Item item);
 }

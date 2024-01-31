@@ -58,4 +58,9 @@
 		#{name}, #{price},
 		#{category.id})
 	</insert>
+	<update id="update">
+		UPDATE items SET name = #{name}, price = #{price},
+		category_Id = #{category.id}
+		WHERE id = #{id}
+	</update>
 </mapper>

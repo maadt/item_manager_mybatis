@@ -35,4 +35,13 @@ public class ItemService {
 		item.setCategory(category);
 		this.itemMapper.insert(item);
 	}
+	
+	public void update(Integer id, String name, Integer price, Integer categoryId) {
+		Item item = this.findById(id);
+		item.setName(name);
+		item.setPrice(price);
+		Category category = new Category();
+		category.setId(categoryId);
+		this.itemMapper.update(item);
+	}
 }
