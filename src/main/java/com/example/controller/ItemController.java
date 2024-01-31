@@ -42,8 +42,8 @@ public class ItemController {
 	}
 	
 	@PostMapping("/create")
-	public String create(ItemForm itemForm) {
-		this.itemService.insert(itemForm);
+	public String create(@ModelAttribute ItemForm itemForm) {
+		this.itemService.insert(itemForm.getName(), itemForm.getPrice(), itemForm.getCategoryId());
 		return "redirect:/index";
 	}
 }

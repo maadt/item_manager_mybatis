@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.entity.Category;
 import com.example.entity.Item;
-import com.example.form.ItemForm;
 import com.example.mapper.ItemMapper;
 
 @Service
@@ -22,12 +22,13 @@ public class ItemService {
 		return this.itemMapper.findAll();
 	}
 	
-	public void insert(ItemForm itemForm) {
+	public void insert(String name, Integer price, Integer categoryId) {
 		Item item = new Item();
-		item.setName(itemForm.getName());
-		item.setPrice(itemForm.getPrice());
-		item.setStock(0);	
-		item.setCategoryId(itemForm.getCategoryId());
+		item.setName(name);
+		item.setPrice(price);
+		Category category = new Category();
+		category.setId(categoryId);
+		item.setCategory(category);
 		this.itemMapper.insert(item);
 	}
 }
