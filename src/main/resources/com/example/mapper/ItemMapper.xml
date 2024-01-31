@@ -31,4 +31,12 @@
 		ON
 		I.CATEGORY_ID = C.ID
 	</select>
+	<insert id="insert" useGeneratedKeys="true" keyColumn="id"
+		keyProperty="id">
+		INSERT INTO items (id, name, price, stock, category_Id)
+		VALUES
+		(nextval('item_id_seq'),
+		#{name}, #{price}, #{stock},
+		#{categoryId})
+	</insert>
 </mapper>
