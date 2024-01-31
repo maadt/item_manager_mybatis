@@ -49,12 +49,11 @@ public class ItemController {
 	}
 	
 	@GetMapping("/edit/{id}")
-	public String editPage(@PathVariable("id") Integer id, Model model
-			                 , @ModelAttribute("itemForm") ItemForm itemForm) {
+	public String editPage(@PathVariable Integer id, @ModelAttribute ItemForm itemForm, Model model) {
 		Item item = this.itemService.findById(id);
 		itemForm.setName(item.getName());
 		itemForm.setPrice(item.getPrice());
-		itemForm.setCategoryId(item.getCategoryId());
+		itemForm.setCategoryId(item.getCategory().getId());
 		List<Category> categories = this.categoryService.findAll();
 		model.addAttribute("categories", categories);
 		return "edit";

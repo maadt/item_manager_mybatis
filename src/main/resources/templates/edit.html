@@ -6,18 +6,18 @@
 </head>
 <body>
     <h1>商品更新ページ</h1>
-    <form th:action="@{/edit/{id}(id=${id})}" th:object="${itemForm}" method="post">
+    <form th:object="${itemForm}" method="post">
         <div>
             <label>商品名</label>
         </div>
         <div>
-            <input type="text" th:field="*{name}">
+            <input type="text" th:field="*{name}" placeholder="商品名を入力してください">
         </div>
         <div>
             <label>価格</label>
         </div>
         <div>
-            <input type="number" th:field="*{price}">
+            <input type="number" th:field="*{price}" placeholder="価格を入力してください">
         </div>
         <div>
             <label>カテゴリー</label>
