@@ -8,22 +8,25 @@
 		<result column="STOCK" property="stock" />
 		<result column="CATEGORY_ID" property="categoryId" />
 		<result column="DELETED_AT" property="deletedAt" />
-		<collection property="categories"
-			ofType="com.example.entity.Category">
+		<association property="category"
+			javaType="com.example.entity.Category">
 			<id column="C_ID" property="id" />
 			<result column="C_NAME" property="name" />
-		</collection>
+		</association>
 	</resultMap>
 	<select id="findAll" resultMap="itemMap">
 		SELECT
 		I.ID
 		,I.NAME
 		,I.PRICE
-		,C.NAME AS C_NAME
+		,I.STOCK
+		,I.DELETED_AT
 		,C.ID AS C_ID
+		,C.NAME AS C_NAME
 		FROM
 		ITEMS I
-		INNER JOIN
+		INNER
+		JOIN
 		CATEGORIES C
 		ON
 		I.CATEGORY_ID = C.ID

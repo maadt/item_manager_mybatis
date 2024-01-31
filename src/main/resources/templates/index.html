@@ -24,7 +24,7 @@
 				<td th:text="${item.id}"></td>
 				<td th:text="${item.name}"></td>
 				<td th:text="${item.price}"></td>
-				<td th:each="category : ${item.categories}" th:text="${category.name}">
+				<td th:text="${item.category.name}"></td>
 				<td>
 					<form method="get">
 						<input type="submit" value="編集">

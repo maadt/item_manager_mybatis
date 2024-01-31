@@ -1,7 +1,6 @@
 package com.example.entity;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 public class Item {
 	private int id;
@@ -54,12 +53,12 @@ public class Item {
 		this.deletedAt = deletedAt;
 	}
 	
-	private List<Category> categories;
+	private Category category;
 	
-	public List<Category> getCategories() {
-        return categories;
+	public Category getCategory() {
+        return category;
     }
-    public void setCategories(List<Category> categories) {
-        this.categories = categories;
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }
