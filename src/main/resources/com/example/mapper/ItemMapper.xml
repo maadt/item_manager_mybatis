@@ -63,4 +63,7 @@
 		category_Id = #{category.id}
 		WHERE id = #{id}
 	</update>
+	<delete id="deleteById">
+		DELETE FROM items WHERE id = #{id}
+	</delete>
 </mapper>

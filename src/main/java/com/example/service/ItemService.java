@@ -46,4 +46,8 @@ public class ItemService {
 		item.setCategory(category);
 		this.itemMapper.update(item);
 	}
+	
+	public void deleteById(Integer id) {
+		this.itemMapper.deleteById(id);
+	}
 }
