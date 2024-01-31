@@ -56,11 +56,12 @@ public class ItemController {
 		itemForm.setCategoryId(item.getCategory().getId());
 		List<Category> categories = this.categoryService.findAll();
 		model.addAttribute("categories", categories);
+		model.addAttribute("id", id);
 		return "edit";
 	}
 	
 	@PostMapping("/edit/{id}")
-	public String update(@PathVariable Integer id, @ModelAttribute ItemForm itemForm) {
+	public String update(@PathVariable Integer id, ItemForm itemForm) {
 		this.itemService.update(id, itemForm.getName(), itemForm.getPrice(), itemForm.getCategoryId());
 		return "redirect:/index";
 	}
