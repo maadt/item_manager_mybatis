@@ -1,49 +1,49 @@
 package com.example.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
-
-@Entity
-@Table(name = "ITEMS")
+import java.time.LocalDateTime;
 
 public class Item {
-	
-	@Id
-	@SequenceGenerator(name = "ITEM_ID_GENERATOR", sequenceName = "ITEM_ID_SEQ", allocationSize = 1)
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ITEM_ID_GENERATOR")
-	
-	@Column(name = "ID")
-	private Integer id;
-	
-	@Column(name = "NAME")
+	private int id;
 	private String name;
+	private int price;
+	private int stock;
+	private int categoryId;
+	private LocalDateTime deletedAt;
 	
-	@Column(name = "PRICE")
-	private Integer price;
-	
-	public Integer getId() {
-		return this.id;
+	public int getId() {
+		return id;
 	}
-	public void setId(Integer id) {
+	public void setId(int id) {
 		this.id = id;
 	}
-	
 	public String getName() {
-		return this.name;
+		return name;
 	}
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	public Integer getPrice() {
-		return this.price;
+	public int getPrice() {
+		return price;
 	}
-	public void setPrice(Integer price) {
+	public void setPrice(int price) {
 		this.price = price;
+	}
+	public int getStock() {
+		return stock;
+	}
+	public void setStock(int stock) {
+		this.stock = stock;
+	}
+	public int getCategoryId() {
+		return categoryId;
+	}
+	public void setCategoryId(int categoryId) {
+		this.categoryId = categoryId;
+	}
+	public LocalDateTime getDeletedAt() {
+		return deletedAt;
+	}
+	public void setDeletedAt(LocalDateTime deletedAt) {
+		this.deletedAt = deletedAt;
 	}
 }

@@ -6,19 +6,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.entity.Item;
-import com.example.repository.ItemRepository;
+import com.example.mapper.ItemMapper;
 
 @Service
 public class ItemService {
-	
-	private final ItemRepository itemRepository;
+	private final ItemMapper itemMapper;
 	
 	@Autowired
-	public ItemService(ItemRepository itemRepository) {
-		this.itemRepository = itemRepository;
+	public ItemService(ItemMapper itemMapper) {
+		this.itemMapper = itemMapper;
 	}
 	
-	public List<Item> findAll() { 
-		return this.itemRepository.findAll();
+	public List<Item> findAll() {
+		return this.itemMapper.findAll();
 	}
 }
