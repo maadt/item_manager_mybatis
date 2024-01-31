@@ -9,6 +9,12 @@ public class Item {
 	private int stock;
 	private int categoryId;
 	private LocalDateTime deletedAt;
+	/*DBの型を「timestamp without time zone」に変更
+	実行クエリ
+	ALTER TABLE items
+	ALTER COLUMN deleted_at TYPE timestamp without time zone
+	USING deleted_at::timestamp without time zone;
+	*/
 	
 	public int getId() {
 		return id;
