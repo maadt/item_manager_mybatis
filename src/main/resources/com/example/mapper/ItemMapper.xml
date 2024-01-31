@@ -31,6 +31,25 @@
 		ON
 		I.CATEGORY_ID = C.ID
 	</select>
+	<select id="findById" resultMap="itemMap">
+		SELECT
+		I.ID
+		,I.NAME
+		,I.PRICE
+		,I.STOCK
+		,I.DELETED_AT
+		,C.ID AS C_ID
+		,C.NAME AS C_NAME
+		FROM
+		ITEMS I
+		INNER
+		JOIN
+		CATEGORIES C
+		ON
+		I.CATEGORY_ID = C.ID
+		WHERE
+		I.ID = #{id}
+	</select>
 	<insert id="insert" useGeneratedKeys="true" keyColumn="id"
 		keyProperty="id">
 		INSERT INTO items (id, name, price, category_Id)

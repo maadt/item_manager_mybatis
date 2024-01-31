@@ -10,4 +10,5 @@ import com.example.entity.Item;
 public interface ItemMapper {
 	public List<Item> findAll();
 	public void insert(Item item);
+	public Item findById(Integer id);
 }

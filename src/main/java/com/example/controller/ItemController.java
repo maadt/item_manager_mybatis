@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.entity.Category;
@@ -33,7 +34,7 @@ public class ItemController {
 		return "index";
 	}
 	
-	//カテゴリーをリスト表示させるためのメソッド
+	//新規登録ページでカテゴリーをリスト表示させるためのメソッド
 	@GetMapping("/create")
 	public String showCreate(@ModelAttribute ItemForm itemForm, Model model) {
 		List<Category> categories = this.categoryService.findAll();
@@ -45,5 +46,17 @@ public class ItemController {
 	public String create(@ModelAttribute ItemForm itemForm) {
 		this.itemService.insert(itemForm.getName(), itemForm.getPrice(), itemForm.getCategoryId());
 		return "redirect:/index";
+	}
+	
+	@GetMapping("/edit/{id}")
+	public String editPage(@PathVariable("id") Integer id, Model model
+			                 , @ModelAttribute("itemForm") ItemForm itemForm) {
+		Item item = this.itemService.findById(id);
+		itemForm.setName(item.getName());
+		itemForm.setPrice(item.getPrice());
+		itemForm.setCategoryId(item.getCategoryId());
+		List<Category> categories = this.categoryService.findAll();
+		model.addAttribute("categories", categories);
+		return "edit";
 	}
 }

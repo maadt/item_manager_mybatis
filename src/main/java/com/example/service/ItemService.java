@@ -22,6 +22,10 @@ public class ItemService {
 		return this.itemMapper.findAll();
 	}
 	
+	public Item findById(Integer id) {
+		return this.itemMapper.findById(id);
+	}
+	
 	public void insert(String name, Integer price, Integer categoryId) {
 		Item item = new Item();
 		item.setName(name);
